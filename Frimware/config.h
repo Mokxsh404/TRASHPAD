@@ -1,0 +1,7 @@
+#pragma once
+
+#define OLED_DISPLAY_128X64
+#define I2C_DRIVER I2CD1
+#define OLED_TIMEOUT 60000
+#define FORCE_NKRO
+#define ENCODER_RESOLUTION 4

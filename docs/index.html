@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRASHPAD — DIY Custom Macropad</title>
+    <meta name="description"
+        content="TRASHPAD is a custom, open-source programmable macropad with rotary encoders, keyswitches, and an OLED display. Build your own productivity beast.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+
+<body>
+    <!-- Premium Glowing Background Elements -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-accent">TRASH</span>PAD
+            </a>
+            <nav>
+                <a href="#story">Story</a>
+                <a href="#about">About</a>
+                <a href="#hardware">Hardware</a>
+                <a href="#simulator">Simulator</a>
+                <a href="#measurements">Specs</a>
+                <a href="#bom">BOM</a>
+                <a href="#resources">Resources</a>
+                <a href="https://github.com/Mokxsh404/TRASHPAD" target="_blank" class="github-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    GitHub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>Elevate Your Workflow with <span class="text-gradient">TRASHPAD</span></h1>
+                <p class="hero-subtitle">
+                    A DIY, highly-programmable macropad featuring keyswitches, a rotary encoder, and an OLED display.
+                    Automate tasks, control media, and boost your daily productivity.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#simulator" class="btn primary-btn">Try Simulator</a>
+                    <a href="https://github.com/Mokxsh404/TRASHPAD" class="btn secondary-btn" target="_blank">View
+                        Repo</a>
+                </div>
+            </div>
+
+            <!-- Visual Showcase -->
+            <div class="hero-showcase">
+                <div class="device-frame">
+                    <div class="oled-screen" id="hero-oled">
+                        <div class="screen-header">TRASHPAD v1.0</div>
+                        <div class="screen-body">
+                            <div class="mode-text">MODE: PRODUCTIVITY</div>
+                            <div class="status-bar">
+                                <span id="oled-active-key">READY</span>
+                                <span class="encoder-val" id="oled-encoder-val">VOL: 50%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="device-controls">
+                        <!-- Encoder -->
+                        <div class="encoder-container">
+                            <div class="encoder" id="physical-encoder">
+                                <div class="encoder-notch"></div>
+                            </div>
+                            <span class="label">ENCODER</span>
+                        </div>
+
+                        <!-- Matrix Keys -->
+                        <div class="key-matrix">
+                            <button class="key-btn" data-action="Copy" data-key="C">
+                                <span class="key-inner"></span>
+                            </button>
+                            <button class="key-btn" data-action="Paste" data-key="V">
+                                <span class="key-inner"></span>
+                            </button>
+                            <button class="key-btn" data-action="Mute" data-key="M">
+                                <span class="key-inner"></span>
+                            </button>
+                            <button class="key-btn" data-action="Undo" data-key="Z">
+                                <span class="key-inner"></span>
+                            </button>
+                            <button class="key-btn" data-action="Redo" data-key="Y">
+                                <span class="key-inner"></span>
+                            </button>
+                            <button class="key-btn" data-action="Save" data-key="S">
+                                <span class="key-inner"></span>
+                            </button>
+                            <button class="key-btn" data-action="Play/Pause" data-key="Space">
+                                <span class="key-inner"></span>
+                            </button>
+                            <button class="key-btn" data-action="Screenshot" data-key="PrtSc">
+                                <span class="key-inner"></span>
+                            </button>
+                            <button class="key-btn" data-action="Lock" data-key="L">
+                                <span class="key-inner"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Origin Story Section -->
+        <section id="story" class="story-section">
+            <div class="section-header">
+                <h2>The Story</h2>
+                <p>How a hackathon project turned into actual hardware.</p>
+            </div>
+            <div class="story-content">
+                <p>TRASHPAD started as a hackathon build — the kind of project where the plan is "just get
+                    something working" and it somehow turns into designing a custom PCB instead. What was supposed
+                    to be a simple macropad ended up with a routed board, a rotary encoder, an OLED display, and a
+                    3D-printed case, because once you're already deep in KiCad at 2am, there's no good reason to
+                    stop.</p>
+                <p>Right now it's in the build-and-test phase — the PCB is designed, the firmware is configured, and
+                    the production files are ready to send to a fab. Everything you see in this repo, from the
+                    schematic to the case files, is exactly what's getting soldered together right now.</p>
+            </div>
+        </section>
+
+        <!-- Features Quick Specs Grid -->
+        <section id="about" class="specs-grid-section">
+            <div class="section-header">
+                <h2>Built for Creators & Coders</h2>
+                <p>Designed with absolute customization and simplicity in mind.</p>
+            </div>
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="spec-icon">⚡</div>
+                    <h3>QMK/KMK Firmware</h3>
+                    <p>Powered by the best keyboard firmware, enabling fully customized macros, layers, and tap-dances.
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">🧭</div>
+                    <h3>Rotary Encoder</h3>
+                    <p>Smooth EC11 rotary encoder perfect for volume control, timeline scrubbing, or brush sizing.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">📺</div>
+                    <h3>OLED Visual Feedback</h3>
+                    <p>0.91" OLED screen shows active profiles, layer indicators, lock statuses, or custom graphics.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">⚙️</div>
+                    <h3>3D Printable Case</h3>
+                    <p>Designed in Fusion 360 with tight tolerances and M3 heatset inserts for absolute durability.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hardware Gallery: Schematic, PCB, 3D Model -->
+        <section id="hardware" class="hardware-section">
+            <div class="section-header">
+                <h2>Inside the Build</h2>
+                <p>From schematic to PCB to a model you can actually spin around.</p>
+            </div>
+            <div class="hardware-grid">
+                <div class="hardware-card" onclick="openLightbox('images/schematic.png')">
+                    <h3>Schematic</h3>
+                    <img src="images/schematic.png" alt="TRASHPAD schematic" class="hardware-img">
+                </div>
+                <div class="hardware-card" onclick="openLightbox('images/pcb.png')">
+                    <h3>PCB</h3>
+                    <img src="images/pcb.png" alt="TRASHPAD PCB" class="hardware-img">
+                </div>
+                <div class="hardware-card hardware-card-wide">
+                    <h3>3D Model</h3>
+                    <model-viewer src="glb/assembled-model.glb" alt="TRASHPAD assembled 3D model" auto-rotate
+                        camera-controls shadow-intensity="1" class="hardware-model"></model-viewer>
+                    <span class="hardware-hint">drag to rotate &middot; scroll to zoom</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Simulator Section -->
+        <section id="simulator" class="simulator-section">
+            <div class="section-header">
+                <h2>Macropad Simulator</h2>
+                <p>Click keys or rotate the wheel to preview the screen feedback.</p>
+            </div>
+
+            <div class="simulator-layout">
+                <div class="simulator-card">
+                    <div class="oled-display-large" id="sim-oled">
+                        <div class="sim-oled-title">TRASHPAD SIMULATOR</div>
+                        <div class="sim-oled-main">SYSTEM: OK</div>
+                        <div class="sim-oled-footer">KEY: NONE | VOL: 50</div>
+                    </div>
+
+                    <div class="sim-device">
+                        <!-- Encoder -->
+                        <div class="sim-encoder-section">
+                            <div class="sim-encoder-knob" id="sim-knob">
+                                <div class="knob-line"></div>
+                            </div>
+                            <div class="encoder-arrows">
+                                <button class="arrow-btn" id="knob-left">◀</button>
+                                <button class="arrow-btn" id="knob-right">▶</button>
+                            </div>
+                            <span class="sim-label">VOL / SCRUB</span>
+                        </div>
+
+                        <!-- 9 Keys Matrix (3x3) -->
+                        <div class="sim-matrix">
+                            <button class="sim-key" data-cmd="Ctrl + C" data-desc="Copy Selection"></button>
+                            <button class="sim-key" data-cmd="Ctrl + V" data-desc="Paste Selection"></button>
+                            <button class="sim-key" data-cmd="Ctrl + Z" data-desc="Undo"></button>
+                            <button class="sim-key" data-cmd="Ctrl + Y" data-desc="Redo"></button>
+                            <button class="sim-key" data-cmd="Ctrl + S" data-desc="Save File"></button>
+                            <button class="sim-key" data-cmd="Win + D" data-desc="Show Desktop"></button>
+                            <button class="sim-key" data-cmd="Alt + Tab" data-desc="Switch App"></button>
+                            <button class="sim-key" data-cmd="PrtSc" data-desc="Screenshot"></button>
+                            <button class="sim-key" data-cmd="Win + L" data-desc="Lock Screen"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="simulator-info">
+                    <h3>Action Log</h3>
+                    <div class="log-terminal" id="log-terminal">
+                        <div class="log-line text-mute">&gt; Waiting for input...</div>
+                    </div>
+                    <button class="btn secondary-btn btn-sm" id="clear-log">Clear Log</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="resources-section">
+            <div class="section-header">
+                <h2>Resources & Tips</h2>
+                <p>Everything you need to design, build, and customize your own TRASHPAD.</p>
+            </div>
+
+            <div class="resources-container">
+                <!-- KiCad Package -->
+                <div class="resource-block">
+                    <h3>📐 KiCad Libraries & Footprints</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://github.com/hackclub/kicad" target="_blank">Hack Club's KiCad Care
+                                Package!</a></li>
+                        <li><a href="https://github.com/ai03-2725/MX_Alps_Hybrid" target="_blank">More Keyswitch
+                                Footprints</a></li>
+                        <li><a href="https://github.com/Seeed-Studio/Seeed_Studio_XIAO_Series_Library"
+                                target="_blank">XIAO Footprints</a></li>
+                        <li><a href="https://snapeda.com" target="_blank">SnapEDA (Search for rotary encoders, OLEDs &
+                                more)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Learning & Guides -->
+                <div class="resource-block">
+                    <h3>📖 Learning & Tutorials</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://www.youtube.com/watch?v=R9Z8bW9cTio" target="_blank">Joe Scotto: How to
+                                design a PCB</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=33mCOnFioY0" target="_blank">Joe Scotto: How to
+                                design a keyboard case</a></li>
+                        <li><a href="https://wiki.ai03.com/" target="_blank">ai03's PCB Design Guide</a></li>
+                        <li><a href="https://wiki.keyboardatelier.com/" target="_blank">The Keyboard Designer Wiki</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specs & Useful Measurements -->
+        <section id="measurements" class="measurements-section">
+            <div class="section-header">
+                <h2>Useful Hardware Specs</h2>
+                <p>Keep these tolerances in mind during CAD and 3D printing.</p>
+            </div>
+
+            <div class="measurements-grid">
+                <div class="measure-card">
+                    <h4>Keyswitch Spacing</h4>
+                    <p class="measure-val">19.05 mm</p>
+                    <span class="measure-desc">Gap between the center of each switch.</span>
+                </div>
+                <div class="measure-card">
+                    <h4>Heatset Inserts</h4>
+                    <p class="measure-val">Ø 4.7mm × 4.0mm</p>
+                    <span class="measure-desc">Hole specs for secure brass thread inserts.</span>
+                </div>
+                <div class="measure-card">
+                    <h4>Direct Screws</h4>
+                    <p class="measure-val">Ø 2.9 mm</p>
+                    <span class="measure-desc">Hole diameter when screwing directly into plastic.</span>
+                </div>
+                <div class="measure-card">
+                    <h4>Pass-Through Holes</h4>
+                    <p class="measure-val">Ø 3.4 mm</p>
+                    <span class="measure-desc">Hole diameter for loose fit M3 screws.</span>
+                </div>
+                <div class="measure-card">
+                    <h4>3D Print Gaps</h4>
+                    <p class="measure-val">0.2 mm</p>
+                    <span class="measure-desc">Ideal spacing tolerance between interfacing 3D parts.</span>
+                </div>
+                <div class="measure-card">
+                    <h4>OLED Header</h4>
+                    <p class="measure-val">4-Pin Header</p>
+                    <span class="measure-desc">Standard footprint connection for screen modules.</span>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>💡 Pro Tips:</h4>
+                <ul>
+                    <li>Avoid switch matrix routing if your design has 6 or fewer switches total. Wired directly to
+                        individual pins is simpler.</li>
+                    <li>Add graphics easily in KiCad by designing overlays in Figma first, then importing them as
+                        DXF/SVG.</li>
+                    <li>Always run <strong>Tools &gt; Cleanup Tracks & Vias</strong> in KiCad before finishing, and
+                        press the build changes button twice.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Bill of Materials (BOM) Section -->
+        <section id="bom" class="bom-section">
+            <div class="section-header">
+                <h2>Bill of Materials</h2>
+                <p>Everything required to source and build your own TRASHPAD Macropad.</p>
+            </div>
+
+            <div class="bom-container">
+                <div class="bom-table-wrapper">
+                    <table class="bom-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th class="text-center">Qty</th>
+                                <th class="text-right">Est. Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="bom-comp-name">Seeed Studio XIAO RP2040</td>
+                                <td data-label="Category"><span class="bom-badge badge-logic">Logic</span></td>
+                                <td data-label="Description">Dual-core Cortex-M0+ MCU, USB-C connector</td>
+                                <td data-label="Qty" class="text-center font-mono">1</td>
+                                <td data-label="Est. Price" class="text-right font-mono">$5.40</td>
+                            </tr>
+                            <tr>
+                                <td class="bom-comp-name">0.91" I2C OLED Display</td>
+                                <td data-label="Category"><span class="bom-badge badge-display">Display</span></td>
+                                <td data-label="Description">SSD1306, 128x32 pixels, 4-pin interface</td>
+                                <td data-label="Qty" class="text-center font-mono">1</td>
+                                <td data-label="Est. Price" class="text-right font-mono">$3.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bom-comp-name">EC11 Rotary Encoder</td>
+                                <td data-label="Category"><span class="bom-badge badge-input">Input</span></td>
+                                <td data-label="Description">EC11 encoder with integrated push-switch, 15mm D-shaft</td>
+                                <td data-label="Qty" class="text-center font-mono">1</td>
+                                <td data-label="Est. Price" class="text-right font-mono">$1.50</td>
+                            </tr>
+                            <tr>
+                                <td class="bom-comp-name">Cherry MX-Compatible Switches</td>
+                                <td data-label="Category"><span class="bom-badge badge-input">Input</span></td>
+                                <td data-label="Description">MX switches of choice (Gateron, Kailh, Outemu, etc.)</td>
+                                <td data-label="Qty" class="text-center font-mono">9</td>
+                                <td data-label="Est. Price" class="text-right font-mono">$3.50</td>
+                            </tr>
+                            <tr>
+                                <td class="bom-comp-name">1u Keycaps</td>
+                                <td data-label="Category"><span class="bom-badge badge-input">Input</span></td>
+                                <td data-label="Description">MX-compatible 1u keycaps of choice</td>
+                                <td data-label="Qty" class="text-center font-mono">9</td>
+                                <td data-label="Est. Price" class="text-right font-mono">$2.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bom-comp-name">1N4148 Diodes</td>
+                                <td data-label="Category"><span class="bom-badge badge-logic">Logic</span></td>
+                                <td data-label="Description">Switching diodes (SOD-123 surface mount)</td>
+                                <td data-label="Qty" class="text-center font-mono">9</td>
+                                <td data-label="Est. Price" class="text-right font-mono">$0.50</td>
+                            </tr>
+                            <tr>
+                                <td class="bom-comp-name">TRASHPAD Custom PCB</td>
+                                <td data-label="Category"><span class="bom-badge badge-pcb">PCB</span></td>
+                                <td data-label="Description">Custom KiCad PCB fabricated at JLCPCB/PCBWay</td>
+                                <td data-label="Qty" class="text-center font-mono">1</td>
+                                <td data-label="Est. Price" class="text-right font-mono">$2.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bom-comp-name">3D Printed Case & Knob</td>
+                                <td data-label="Category"><span class="bom-badge badge-case">Case</span></td>
+                                <td data-label="Description">Top shell, bottom plate, and matching D-shaft knob</td>
+                                <td data-label="Qty" class="text-center font-mono">1</td>
+                                <td data-label="Est. Price" class="text-right font-mono">$2.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bom-comp-name">M3 Threaded Inserts</td>
+                                <td data-label="Category"><span class="bom-badge badge-hardware">Hardware</span></td>
+                                <td data-label="Description">Brass heat-set inserts (Ø 4.7mm x 4.0mm)</td>
+                                <td data-label="Qty" class="text-center font-mono">4</td>
+                                <td data-label="Est. Price" class="text-right font-mono">$0.50</td>
+                            </tr>
+                            <tr>
+                                <td class="bom-comp-name">M3 Machine Screws</td>
+                                <td data-label="Category"><span class="bom-badge badge-hardware">Hardware</span></td>
+                                <td data-label="Description">M3 x 6mm or 8mm button head screws</td>
+                                <td data-label="Qty" class="text-center font-mono">4</td>
+                                <td data-label="Est. Price" class="text-right font-mono">$0.50</td>
+                            </tr>
+                            <tr>
+                                <td class="bom-comp-name">Rubber Feet</td>
+                                <td data-label="Category"><span class="bom-badge badge-hardware">Hardware</span></td>
+                                <td data-label="Description">Self-adhesive silicone bumper pads</td>
+                                <td data-label="Qty" class="text-center font-mono">4</td>
+                                <td data-label="Est. Price" class="text-right font-mono">$0.50</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="bom-total-row">
+                                <td colspan="3">Estimated Build Total</td>
+                                <td data-label="Total Qty" class="text-center font-mono">36</td>
+                                <td data-label="Total Price" class="text-right font-mono text-gradient font-bold">~$21.40</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img src="" alt="Expanded view" class="lightbox-img" id="lightbox-img">
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Designed and built with ❤️ by <a href="https://github.com/Mokxsh404" target="_blank">Mokxsh / Moksha
+                    Kumbhaj</a>.</p>
+            <p class="text-mute">TRASHPAD is completely open source under the MIT License.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
