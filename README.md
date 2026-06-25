@@ -39,18 +39,18 @@ Here is everything you need to source to build your own TRASHPAD. All parts are 
 
 | Component | Description | Qty | Est. Cost | Notes |
 | :--- | :--- | :---: | :---: | :--- |
-| **Seeed Studio XIAO RP2040** | Dual-core Cortex-M0+ microcontroller, USB-C | 1 | ~$5.40 | Main controller footprint |
+| **Seeed Studio XIAO RP2040** | Dual-core Cortex-M0+ microcontroller, USB-C | 1 | ~$5.50 | Main controller footprint |
 | **0.91" I2C OLED Display** | SSD1306, 128x32 screen | 1 | ~$3.00 | 4-pin header connection |
 | **EC11 Rotary Encoder** | EC11 encoder with push-button switch, D-shaft (15mm) | 1 | ~$1.50 | 5-pin footprint |
-| **Keyswitches** | Cherry MX-compatible switches (Gateron, Kailh, etc.) | 9 | ~$3.50 | Soldered directly to PCB |
-| **1u Keycaps** | MX-style keycaps | 9 | ~$2.00 | Standard 1u size |
+| **Keyswitches** | Cherry MX-compatible switches (Gateron, Kailh, etc.) | 9 | ~$4.00 | Soldered directly to PCB |
+| **1u Keycaps** | MX-style keycaps | 9 | ~$3.00 | Standard 1u size |
 | **1N4148 Diodes** | Switching diodes | 9 | ~$0.50 | SOD-123 surface mount |
-| **TRASHPAD Custom PCB** | Custom printed circuit board | 1 | ~$2.00 | Fab via JLCPCB/PCBWay ($2 for 5) |
-| **3D Printed Case & Knob** | Top casing, bottom plate, and encoder knob | 1 | ~$2.00 | ~60g filament |
+| **TRASHPAD Custom PCB** | Custom printed circuit board (Fab & Shipping) | 1 | ~$6.00 | JLCPCB/PCBWay fab + shipping share |
+| **3D Printed Case & Knob** | Top casing, bottom plate, and encoder knob | 1 | ~$5.00 | Using local hub / custom printing service |
 | **M3 Threaded Inserts** | Brass heat-set inserts | 4 | ~$0.50 | Ø 4.7mm × 4.0mm inserts |
 | **M3 Machine Screws** | M3 screws for case | 4 | ~$0.50 | M3 × 6mm or 8mm button-head |
 | **Rubber Feet** | Self-adhesive silicone bumpers | 4 | ~$0.50 | Ø 8mm x 2mm feet |
-| **Total Build Cost** | | | **~$21.40** | *(Excludes tools, shipping, USB-C)* |
+| **Total Build Cost** | | | **~$30.00** | *(Excludes tools, shipping, USB-C)* |
 
 ## repo structure
 
