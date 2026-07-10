@@ -1,16 +1,13 @@
-## bill of materials (bom)
-
-| Component | Description | Qty | Est. Cost | Notes |
-| :--- | :--- | :---: | :---: | :--- |
-| **Seeed Studio XIAO RP2040** | Dual-core Cortex-M0+ microcontroller, USB-C | 1 | ~$5.50 | Main controller footprint |
-| **0.91" I2C OLED Display** | SSD1306, 128x32 screen | 1 | ~$3.00 | 4-pin header connection |
-| **EC11 Rotary Encoder** | EC11 encoder with push-button switch, D-shaft (15mm) | 1 | ~$1.50 | 5-pin footprint |
-| **Keyswitches** | Cherry MX-compatible switches (Gateron, Kailh, etc.) | 9 | ~$4.00 | Soldered directly to PCB |
-| **1u Keycaps** | MX-style keycaps | 9 | ~$3.00 | Standard 1u size |
-| **1N4148 Diodes** | Switching diodes | 9 | ~$0.50 | SOD-123 surface mount |
-| **TRASHPAD Custom PCB** | Custom printed circuit board (Fab & Shipping) | 1 | ~$6.00 | JLCPCB/PCBWay fab + shipping share |
-| **3D Printed Case & Knob** | Top casing, bottom plate, and encoder knob | 1 | ~$5.00 | Using local hub / custom printing service |
-| **M3 Threaded Inserts** | Brass heat-set inserts | 4 | ~$0.50 | Ø 4.7mm × 4.0mm inserts |
-| **M3 Machine Screws** | M3 screws for case | 4 | ~$0.50 | M3 × 6mm or 8mm button-head |
-| **Rubber Feet** | Self-adhesive silicone bumpers | 4 | ~$0.50 | Ø 8mm x 2mm feet |
-| **Total Build Cost** | | | **~$30.00** | *(Excludes tools, shipping, USB-C)* |
+Component,Category,Description,Qty,Est. Price
+Seeed Studio XIAO RP2040,Logic,"Dual-core Cortex-M0+ MCU, USB-C connector",1,$5.50
+0.91" I2C OLED Display,Display,"SSD1306, 128x32 pixels, 4-pin interface",1,$3.00
+EC11 Rotary Encoder,Input,"EC11 encoder with integrated push-switch, 15mm D-shaft",1,$1.50
+Cherry MX-Compatible Switches,Input,"MX switches of choice (Gateron, Kailh, Outemu, etc.)",9,$4.00
+1u Keycaps,Input,MX-compatible 1u keycaps of choice,9,$3.00
+1N4148 Diodes,Logic,Switching diodes (SOD-123 surface mount),9,$0.50
+TRASHPAD Custom PCB,PCB,Custom KiCad PCB (Fab & Shipping share),1,$6.00
+3D Printed Case & Knob,Case,"Top shell, bottom plate, and knob (service/filament)",1,$5.00
+M3 Threaded Inserts,Hardware,Brass heat-set inserts (Ø 4.7mm x 4.0mm),4,$0.50
+M3 Machine Screws,Hardware,M3 x 6mm or 8mm button head screws,4,$0.50
+Rubber Feet,Hardware,Self-adhesive silicone bumper pads,4,$0.50
+Estimated Build Total,,,36,~$30.00
